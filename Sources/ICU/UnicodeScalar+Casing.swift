@@ -20,7 +20,7 @@ public extension UnicodeScalar {
   /// itself if it has no lowercase equivalent.
   ///
   /// - Returns: The lowercase equivalent of the receiving scalar.
-  public func lowercased() -> UnicodeScalar {
+  func lowercased() -> UnicodeScalar {
     return UnicodeScalar(uchar32Value: u_tolower(uchar32Value))!
   }
 
@@ -29,7 +29,7 @@ public extension UnicodeScalar {
   /// property).
   ///
   /// - Returns: The mirror-image equivalent of the receiving scalar.
-  public func mirrored() -> UnicodeScalar {
+  func mirrored() -> UnicodeScalar {
     return UnicodeScalar(uchar32Value: u_charMirror(uchar32Value))!
   }
 
@@ -43,7 +43,7 @@ public extension UnicodeScalar {
   /// U+01C4 (LATIN CAPITAL LETTER DZ WITH CARON).
   ///
   /// - Returns: The titlecase equivalent of the receiving scalar.
-  public func titlecased() -> UnicodeScalar {
+  func titlecased() -> UnicodeScalar {
     return UnicodeScalar(uchar32Value: u_totitle(uchar32Value))!
   }
 
@@ -51,7 +51,7 @@ public extension UnicodeScalar {
   /// itself if it has no uppercase equivalent.
   ///
   /// - Returns: The uppercase equivalent of the receiving scalar.
-  public func uppercased() -> UnicodeScalar {
+  func uppercased() -> UnicodeScalar {
     return UnicodeScalar(uchar32Value: u_toupper(uchar32Value))!
   }
 }

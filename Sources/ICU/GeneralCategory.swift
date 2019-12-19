@@ -14,7 +14,7 @@
 
 import ICU4C
 
-extension Unicode {
+public enum Unicode {
 
   /// The general category types of Unicode scalars.
   public enum GeneralCategory: ConvertibleFromUnicodeIntProperty {

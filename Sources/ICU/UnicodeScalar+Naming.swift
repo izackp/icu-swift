@@ -56,7 +56,7 @@ public extension UnicodeScalar {
   /// - Parameters:
   ///   - name: The name of the code point.
   ///   - nameKind: The kind of the name specified by `name`.
-  public init?(named name: String, nameKind: Unicode.NameKind = .unicode) {
+  init?(named name: String, nameKind: Unicode.NameKind = .unicode) {
     var error = UErrorCode()
     let value = u_charFromName(nameKind.cValue, name, &error)
     guard error.isSuccess else {
@@ -72,11 +72,11 @@ public extension UnicodeScalar {
   ///   - kind: A value from `UnicodeNameKind` indicating which name should be
   ///     returned. If not provided, the default is `.unicode`.
   /// - Returns: The name of the scalar, or `nil` if the name does not exist.
-  public func name(kind: Unicode.NameKind = .unicode) -> String? {
+  func name(kind: Unicode.NameKind = .unicode) -> String? {
     var error = UErrorCode()
     var buffer = UnsafeMutablePointer<Int8>.allocate(
       capacity: charNameBufferLength)
-    defer { buffer.deallocate(capacity: charNameBufferLength) }
+    defer { buffer.deallocate() }
 
     let length = u_charName(
       uchar32Value,

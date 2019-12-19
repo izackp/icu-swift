@@ -17,7 +17,7 @@ import ICU4C
 public extension UnicodeScalar {
 
   /// The canonical combining class of the receiving scalar.
-  public var canonicalCombiningClass: Int {
+  var canonicalCombiningClass: Int {
     let cValue =
       u_getIntPropertyValue(uchar32Value, UCHAR_CANONICAL_COMBINING_CLASS)
     return Int(cValue)
@@ -28,7 +28,7 @@ public extension UnicodeScalar {
   ///
   /// In other words, `lccc(c) = ccc(NFD(c)[0])`. This is useful for checking
   /// for canonically ordered text.
-  public var leadingCanonicalCombiningClass: Int {
+  var leadingCanonicalCombiningClass: Int {
     let cValue =
       u_getIntPropertyValue(uchar32Value, UCHAR_LEAD_CANONICAL_COMBINING_CLASS)
     return Int(cValue)
@@ -39,7 +39,7 @@ public extension UnicodeScalar {
   ///
   /// In other words, `tccc(c) = ccc(NFD(c)[last])`. This is useful for checking
   /// for canonically ordered text.
-  public var trailingCanonicalCombiningClass: Int {
+  var trailingCanonicalCombiningClass: Int {
     let cValue =
       u_getIntPropertyValue(uchar32Value, UCHAR_TRAIL_CANONICAL_COMBINING_CLASS)
     return Int(cValue)

@@ -181,7 +181,7 @@ extension Unicode.Version: LosslessStringConvertible {
   public var description: String {
     let capacity = Int(U_MAX_VERSION_STRING_LENGTH)
     let stringPointer = UnsafeMutablePointer<Int8>.allocate(capacity: capacity)
-    defer { stringPointer.deallocate(capacity: capacity) }
+    defer { stringPointer.deallocate() }
 
     withUnsafeUInt8Pointer { versionPointer in
       u_versionToString(versionPointer, stringPointer)

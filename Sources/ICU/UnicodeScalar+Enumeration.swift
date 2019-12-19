@@ -14,7 +14,7 @@
 
 import ICU4C
 
-extension Unicode.Scalar {
+extension UnicodeScalar {
 
   /// The type of a function passed to `UnicodeScalar.enumerateCodePointRanges`.
   /// It takes three arguments: the `GeneralCategory`, the `Range<Int>` of code

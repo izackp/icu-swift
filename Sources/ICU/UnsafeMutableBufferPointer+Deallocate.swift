@@ -18,6 +18,6 @@ extension UnsafeMutableBufferPointer {
 
   /// Deallocates the member underlying this buffer pointer.
   internal func deallocate() {
-    baseAddress!.deallocate(capacity: count)
+    baseAddress!.deallocate()
   }
 }
