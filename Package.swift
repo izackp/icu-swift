@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.1
 
 // Copyright 2017 Tony Allevato.
 //
@@ -19,13 +19,13 @@ import PackageDescription
 let package = Package(
   name: "icu-swift",
   products: [
-    .library(name: "swiftICU", type: .static, targets: ["ICU"]),
+    .library(name: "ICU", type: .static, targets: ["ICU"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/allevato/icu4c-swift", from: "1.0.1"),
+    .package(url: "https://github.com/kPherox/icu4c-swift", .branch("master")),
   ],
   targets: [
-    .target(name: "ICU"),
+    .target(name: "ICU", dependencies: ["ICU4C"]),
     .testTarget(name: "ICUTests", dependencies: ["ICU"]),
   ]
 )

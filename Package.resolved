@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "icu4c-swift",
-        "repositoryURL": "https://github.com/allevato/icu4c-swift",
+        "repositoryURL": "https://github.com/kPherox/icu4c-swift",
         "state": {
-          "branch": null,
-          "revision": "eb1ea105e25d17ce6481b5a3338711530b7bd13d",
-          "version": "1.0.1"
+          "branch": "master",
+          "revision": "48549b4281ff5f30d2602f39d82f530c31bcadb9",
+          "version": null
         }
       }
     ]
