@@ -14,14 +14,14 @@
 
 import ICU4C
 
-extension String {
+internal extension String {
 
   /// Creates a new `String` from the given pointer to a buffer containing
   /// null-terminated UTF-16 code units.
   ///
   /// - Parameter pointer: A pointer to a buffer containing null-terminated
   ///   UTF-16 code units.
-  internal init(unsafeUTF16CodeUnits pointer: UnsafePointer<UChar>) {
+  init(unsafeUTF16CodeUnits pointer: UnsafePointer<UChar>) {
     var codec = UTF16()
     var result = ""
 
@@ -56,7 +56,7 @@ extension String {
   ///
   /// - Returns: An `UnsafeMutableBufferPointer` containing a copy of the UTF-16
   ///   code units of the receiver.
-  internal func unsafeUTF16CodeUnits() -> UnsafeMutableBufferPointer<UChar> {
+  func unsafeUTF16CodeUnits() -> UnsafeMutableBufferPointer<UChar> {
     let length = utf16.count
     let pointer = UnsafeMutablePointer<UChar>.allocate(capacity: length)
     let bufferPointer = UnsafeMutableBufferPointer(start: pointer, count: length)

@@ -14,13 +14,13 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Enumerated property `Bidi_Paired_Bracket_Type` (new in Unicode 6.3).
   ///
   /// Used in UAX #9: Unicode Bidirectional Algorithm
   /// <http://www.unicode.org/reports/tr9/>.
-  public enum BidiPairedBracketType: ConvertibleFromUnicodeIntProperty {
+  enum BidiPairedBracketType: ConvertibleFromUnicodeIntProperty {
 
     /// Open paired bracket.
     case open
@@ -51,10 +51,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The bidirectional paired bracket type of the receiver.
-  public var bidiPairedBracketType: Unicode.BidiPairedBracketType? {
+  var bidiPairedBracketType: Unicode.BidiPairedBracketType? {
     return value(of: UCHAR_BIDI_PAIRED_BRACKET_TYPE)
   }
 }

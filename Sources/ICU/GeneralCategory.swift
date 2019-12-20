@@ -264,10 +264,10 @@ public enum Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The Unicode general category of the receiving scalar.
-  public var generalCategory: Unicode.GeneralCategory? {
+  var generalCategory: Unicode.GeneralCategory? {
     return value(of: UCHAR_GENERAL_CATEGORY)
   }
 }

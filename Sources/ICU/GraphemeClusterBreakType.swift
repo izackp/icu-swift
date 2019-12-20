@@ -14,14 +14,14 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Denotes the grapheme cluster break type property of a scalar.
   ///
   /// The values in this enum can be used in an algorithm as described by
   /// http://www.unicode.org/reports/tr29/ to determine grapheme cluster
   /// boundaries within a sequence of scalars.
-  public enum GraphemeClusterBreakType: ConvertibleFromUnicodeIntProperty {
+    enum GraphemeClusterBreakType: ConvertibleFromUnicodeIntProperty {
 
     case other
     case control
@@ -96,10 +96,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The grapheme cluster break property of the receiver.
-  public var graphemeClusterBreakType: Unicode.GraphemeClusterBreakType {
+  var graphemeClusterBreakType: Unicode.GraphemeClusterBreakType {
     return value(of: UCHAR_GRAPHEME_CLUSTER_BREAK)
   }
 }

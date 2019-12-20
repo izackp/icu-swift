@@ -14,14 +14,14 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Denotes the sentence break type property of a scalar.
   ///
   /// The values in this enum can be used in an algorithm as described by
   /// http://www.unicode.org/reports/tr29/ to determine sentence boundaries
   /// within text.
-  public enum SentenceBreakType: ConvertibleFromUnicodeIntProperty {
+  enum SentenceBreakType: ConvertibleFromUnicodeIntProperty {
 
     case other
     case aterm
@@ -87,10 +87,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The sentence break type of the receiver.
-  public var sentenceBreakType: Unicode.SentenceBreakType {
+  var sentenceBreakType: Unicode.SentenceBreakType {
     return value(of: UCHAR_SENTENCE_BREAK)
   }
 }

@@ -14,12 +14,12 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Enumerated property `East_Asian_Width`.
   ///
   /// Described by [http://www.unicode.org/reports/tr11/](http://www.unicode.org/reports/tr11/).
-  public enum EastAsianWidth: ConvertibleFromUnicodeIntProperty {
+  enum EastAsianWidth: ConvertibleFromUnicodeIntProperty {
 
     /// Any character that does not appear in East Asian typography.
     case neutral
@@ -78,10 +78,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The East Asian width property of the receiver.
-  public var eastAsianWidth: Unicode.EastAsianWidth {
+  var eastAsianWidth: Unicode.EastAsianWidth {
     return value(of: UCHAR_EAST_ASIAN_WIDTH)
   }
 }

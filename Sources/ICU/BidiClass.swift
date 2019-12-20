@@ -14,10 +14,10 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// The bidirectional class property of a scalar.
-  public enum BidiClass: ConvertibleFromUnicodeIntProperty {
+  enum BidiClass: ConvertibleFromUnicodeIntProperty {
 
     /// Any strong left-to-right character (abbreviated L).
     case leftToRight
@@ -125,10 +125,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The bidirectional class of the receiver.
-  public var bidiClass: Unicode.BidiClass {
+  var bidiClass: Unicode.BidiClass {
     return value(of: UCHAR_BIDI_CLASS)
   }
 }

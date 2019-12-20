@@ -14,11 +14,11 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// A contiguous range of scalars that is uniquely named and does not overlap
   /// with any other block.
-  public enum Block: ConvertibleFromUnicodeIntProperty {
+    enum Block: ConvertibleFromUnicodeIntProperty {
 
     case basicLatin
     case latin1Supplement
@@ -931,10 +931,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The Unicode block that contains the receiving scalar.
-  public var block: Unicode.Block? {
+  var block: Unicode.Block? {
     return value(of: UCHAR_BLOCK)
   }
 }

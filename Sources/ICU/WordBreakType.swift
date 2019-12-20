@@ -14,14 +14,14 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Denotes the word break type property of a scalar.
   ///
   /// The values in this enum can be used in an algorithm as described by
   /// http://www.unicode.org/reports/tr29/ to determine word boundaries within
   /// text.
-  public enum WordBreakType: ConvertibleFromUnicodeIntProperty {
+  enum WordBreakType: ConvertibleFromUnicodeIntProperty {
 
     case other
     case aletter
@@ -108,10 +108,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The word break type of the receiver.
-  public var wordBreakType: Unicode.WordBreakType {
+  var wordBreakType: Unicode.WordBreakType {
     return value(of: UCHAR_WORD_BREAK)
   }
 }

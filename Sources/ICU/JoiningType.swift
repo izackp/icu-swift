@@ -14,10 +14,10 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Describes the Arabic cursive joining type of a scalar.
-  public enum JoiningType: ConvertibleFromUnicodeIntProperty {
+  enum JoiningType: ConvertibleFromUnicodeIntProperty {
 
     case nonJoining
     case joinCausing
@@ -56,10 +56,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The joining type property of the receiver.
-  public var joiningType: Unicode.JoiningType {
+  var joiningType: Unicode.JoiningType {
     return value(of: UCHAR_JOINING_TYPE)
   }
 }

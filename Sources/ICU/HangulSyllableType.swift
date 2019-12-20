@@ -14,10 +14,10 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Represents the Hangul syllable type of a scalar.
-  public enum HangulSyllableType: ConvertibleFromUnicodeIntProperty {
+  enum HangulSyllableType: ConvertibleFromUnicodeIntProperty {
 
     /// A leading consonant.
     case leadingJamo
@@ -64,10 +64,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The Hangul syllable type of the receiver.
-  public var hangulSyllableType: Unicode.HangulSyllableType? {
+  var hangulSyllableType: Unicode.HangulSyllableType? {
     return value(of: UCHAR_HANGUL_SYLLABLE_TYPE)
   }
 }

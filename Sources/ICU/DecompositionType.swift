@@ -14,14 +14,14 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Enumerated property `Decomposition_Type`.
   ///
   /// If this value is anything other than `canonical`, then it represents a
   /// compatibility decomposition that indicates the type of information that
   /// would be lost if the character was converted to that decomposition.
-  public enum DecompositionType: ConvertibleFromUnicodeIntProperty {
+  enum DecompositionType: ConvertibleFromUnicodeIntProperty {
 
     /// A canonical decomposition, which is either a single Unicode scalar or
     /// two Unicode scalars where the first may itself recursively have a
@@ -111,10 +111,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The decomposition type of the receiver.
-  public var decompositionType: Unicode.DecompositionType? {
+  var decompositionType: Unicode.DecompositionType? {
     return value(of: UCHAR_DECOMPOSITION_TYPE)
   }
 }

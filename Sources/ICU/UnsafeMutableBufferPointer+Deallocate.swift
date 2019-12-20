@@ -14,10 +14,10 @@
 
 import ICU4C
 
-extension UnsafeMutableBufferPointer {
+internal extension UnsafeMutableBufferPointer {
 
   /// Deallocates the member underlying this buffer pointer.
-  internal func deallocate() {
+  func deallocate() {
     baseAddress!.deallocate()
   }
 }

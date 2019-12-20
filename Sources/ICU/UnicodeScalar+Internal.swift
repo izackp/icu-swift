@@ -14,20 +14,20 @@
 
 import ICU4C
 
-extension UnicodeScalar {
+internal extension UnicodeScalar {
 
   /// Creates a new Unicode scalar with the given `UChar32` value obtained from
   /// one of the ICU C APIs.
   ///
   /// - Parameter uchar32Value: A `UChar32` value representing the numeric code
   ///   point.
-  internal init?(uchar32Value: UChar32) {
+  init?(uchar32Value: UChar32) {
     self.init(UInt32(bitPattern: uchar32Value))
   }
 
   /// Helper property to return the raw value as a `UChar32` that can be easily
   /// consumed by ICU's C APIs.
-  internal var uchar32Value: UChar32 {
+  var uchar32Value: UChar32 {
     return Int32(bitPattern: value)
   }
   
@@ -35,7 +35,7 @@ extension UnicodeScalar {
   ///
   /// - Parameter property: The C value representing the property to return.
   /// - Returns: The value of the property (true or false).
-  internal func value(of property: UProperty) -> Bool {
+  func value(of property: UProperty) -> Bool {
     return u_hasBinaryProperty(uchar32Value, property) != 0
   }
   
@@ -49,7 +49,7 @@ extension UnicodeScalar {
   /// - Returns: The value of the property, which is a type that conforms to
   ///   `ConvertibleFromUnicodeIntProperty` such that it can be initialized
   ///   using the underlying integer value.
-  internal func value<
+  func value<
     Result: ConvertibleFromUnicodeIntProperty
   >(
     of property: UProperty
@@ -68,7 +68,7 @@ extension UnicodeScalar {
   /// - Returns: The value of the property, which is a type that conforms to
   ///   `ConvertibleFromUnicodeIntProperty` such that it can be initialized
   ///   using the underlying integer value.
-  internal func value<
+  func value<
     Result: ConvertibleFromUnicodeIntProperty
   >(
     of property: UProperty
@@ -90,7 +90,7 @@ extension UnicodeScalar {
   /// - Returns: The value of the property, which is a type that conforms to
   ///   `ConvertibleFromUnicodeIntProperty` such that it can be initialized
   ///   using the underlying integer value.
-  internal func value<
+  func value<
     Result: ConvertibleFromUnicodeIntProperty
   >(
     of property: UProperty
@@ -109,7 +109,7 @@ extension UnicodeScalar {
   /// - Returns: The value of the property, which is a type that conforms to
   ///   `ConvertibleFromUnicodeIntProperty` such that it can be initialized
   ///   using the underlying integer value.
-  internal func value<
+  func value<
     Result: ConvertibleFromUnicodeIntProperty
   >(
     of property: UProperty

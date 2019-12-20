@@ -14,27 +14,27 @@
 
 import ICU4C
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The type of a function passed to `UnicodeScalar.enumerateCodePointRanges`.
   /// It takes three arguments: the `GeneralCategory`, the `Range<Int>` of code
   /// points, and an `inout Bool` that should be set to `true` to stop
   /// enumeration.
-  public typealias EnumerateCodePointRangesCallback =
+  typealias EnumerateCodePointRangesCallback =
     (Unicode.GeneralCategory?, Range<Int>, inout Bool) -> Void
 
   /// The type of a function passed to `UnicodeScalar.enumerateScalarRanges`. It
   /// takes three arguments: the `GeneralCategory`, the
   /// `ClosedRange<UnicodeScalar>` of code points, and an `inout Bool` that
   /// should be set to `true` to stop enumeration.
-  public typealias EnumerateScalarRangesCallback =
+  typealias EnumerateScalarRangesCallback =
     (Unicode.GeneralCategory?, ClosedRange<UnicodeScalar>, inout Bool) -> Void
 
   /// The type of a function passed to `UnicodeScalar.enumerateScalars`. It
   /// takes three arguments: the current `UnicodeScalar` in the enumeration,
   /// a `String` containing the name of the code point, and an `inout Bool` that
   /// should be set to `true` to stop enumeration.
-  public typealias EnumerateScalarsCallback =
+  typealias EnumerateScalarsCallback =
     (UnicodeScalar, String, inout Bool) -> Void
 
   /// Enumerates contiguous ranges of Unicode code points such that the code
@@ -49,7 +49,7 @@ extension UnicodeScalar {
   ///     points that share the same general category. It takes three arguments:
   ///     the `GeneralCategory`, the `Range<Int>` of code points, and an `inout
   ///     Bool` that should be set to `true` to stop enumeration.
-  public static func enumerateCodePointRanges(
+  static func enumerateCodePointRanges(
     block: EnumerateCodePointRangesCallback
   ) {
     withoutActuallyEscaping(block) { block in
@@ -75,7 +75,7 @@ extension UnicodeScalar {
   ///     the `GeneralCategory`, the `ClosedRange<UnicodeScalar>` of code
   ///     points, and an `inout Bool` that should be set to `true` to stop
   ///     enumeration.
-  public static func enumerateScalarRanges(
+  static func enumerateScalarRanges(
     includeUnassigned: Bool = false,
     block: EnumerateScalarRangesCallback
   ) {
@@ -113,7 +113,7 @@ extension UnicodeScalar {
   ///     enumerate. It takes three arguments: a `UnicodeScalar`, a `String`
   ///     containing the name of the code point, and an `inout Bool` that should
   ///     be set to `true` to stop enumeration.
-  public static func enumerateScalars(
+  static func enumerateScalars(
     from start: Int,
     to end: Int,
     nameKind: Unicode.NameKind = .unicode,

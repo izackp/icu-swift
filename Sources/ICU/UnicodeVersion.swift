@@ -14,7 +14,7 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// A four-component version value. These values are used to represent, for
   /// example, the Unicode version at which a code point was introduced.
@@ -23,7 +23,7 @@ extension Unicode {
   /// converted to/from human-readable strings.
   ///
   /// See also `UnicodeScalar.unicodeAge`.
-  public struct Version {
+  struct Version {
 
     /// The underlying C value representing the version.
     private(set) var cValue: UVersionInfo
@@ -215,10 +215,10 @@ extension Unicode.Version: LosslessStringConvertible {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The Unicode version in which the receiving scalar was first defined.
-  public var unicodeAge: Unicode.Version {
+  var unicodeAge: Unicode.Version {
     var version = Unicode.Version(major: 0)
     version.withUnsafeMutableUInt8Pointer { pointer in
       u_charAge(uchar32Value, pointer)

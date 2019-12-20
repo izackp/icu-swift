@@ -14,7 +14,7 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// ISO 15924 script codes.
   ///
@@ -40,7 +40,7 @@ extension Unicode {
   /// are stable and match the names of the constants. Script codes like "Latf"
   /// and "Aran" that are not subject to separate encoding may be added at any
   /// time.
-  public enum ScriptCode: ConvertibleFromUnicodeIntProperty {
+  enum ScriptCode: ConvertibleFromUnicodeIntProperty {
 
     /// ISO script code "Zyyy".
     case common
@@ -1003,7 +1003,7 @@ extension Unicode {
 
   /// Represents the categorization of a script with respect to its recommended
   /// usage in programming language identifiers.
-  public enum ScriptIdentifierUsage {
+  enum ScriptIdentifierUsage {
 
     /// The script usage is not encoded in Unicode.
     case notEncoded
@@ -1047,10 +1047,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The script code associated with the receiving scalar.
-  public var scriptCode: Unicode.ScriptCode {
+  var scriptCode: Unicode.ScriptCode {
     return value(of: UCHAR_SCRIPT)
   }
 
@@ -1065,7 +1065,7 @@ extension UnicodeScalar {
   ///
   /// If the receiving scalar is not a valid code point, the returned set
   /// contains a single element, `.unknown`.
-  public var scriptExtensions: Set<Unicode.ScriptCode> {
+  var scriptExtensions: Set<Unicode.ScriptCode> {
     var error = UErrorCode()
     var buffer = UnsafeMutablePointer<UScriptCode>.allocate(
       capacity: scriptExtensionsBufferLength)
@@ -1097,7 +1097,7 @@ extension UnicodeScalar {
   /// - Returns: True if the scalar's script extensions contain the given
   ///   script code, or if the scalar has no script extensions and its script
   ///   code is equal to the given one.
-  public func hasScriptCode(_ scriptCode: Unicode.ScriptCode) -> Bool {
+  func hasScriptCode(_ scriptCode: Unicode.ScriptCode) -> Bool {
     return uscript_hasScript(uchar32Value, scriptCode.cValue) != 0
   }
 }

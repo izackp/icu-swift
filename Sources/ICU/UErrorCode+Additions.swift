@@ -14,7 +14,7 @@
 
 import ICU4C
 
-extension UErrorCode {
+internal extension UErrorCode {
 
   /// True if the error code is a success error code.
   var isSuccess: Bool {

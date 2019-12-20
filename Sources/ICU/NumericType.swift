@@ -14,10 +14,10 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Denotes the numeric type and value of a scalar, if it has one.
-  public enum NumericValue {
+  enum NumericValue {
 
     /// Used for scalars whose numeric values are represented with an integer
     /// value in range `0...9`. Such scalars are restricted to digits that can be
@@ -42,10 +42,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The numeric value of the receiving scalar, if it has one.
-  public var numericValue: Unicode.NumericValue? {
+  var numericValue: Unicode.NumericValue? {
     let cValue = UNumericType(
       UInt32(bitPattern: u_getIntPropertyValue(
         uchar32Value, UCHAR_NUMERIC_TYPE)))

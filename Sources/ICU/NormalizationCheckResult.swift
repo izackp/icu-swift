@@ -14,11 +14,11 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// The result of any of the "quick check" properties that provide optimizations
   /// for implementations of Unicode normalization.
-  public enum NormalizationCheckResult: ConvertibleFromUnicodeIntProperty {
+  enum NormalizationCheckResult: ConvertibleFromUnicodeIntProperty {
 
     /// The scalar cannot ever occur in the checked normalization form.
     case no
@@ -44,25 +44,25 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// Indicates whether or not the receiving scalar can occur in NFD form.
-  public var nfdQuickCheck: Unicode.NormalizationCheckResult {
+  var nfdQuickCheck: Unicode.NormalizationCheckResult {
     return value(of: UCHAR_NFD_QUICK_CHECK)
   }
 
   /// Indicates whether or not the receiving scalar can occur in NFKD form.
-  public var nfkdQuickCheck: Unicode.NormalizationCheckResult {
+  var nfkdQuickCheck: Unicode.NormalizationCheckResult {
     return value(of: UCHAR_NFKD_QUICK_CHECK)
   }
 
   /// Indicates whether or not the receiving scalar can occur in NFC form.
-  public var nfcQuickCheck: Unicode.NormalizationCheckResult {
+  var nfcQuickCheck: Unicode.NormalizationCheckResult {
     return value(of: UCHAR_NFC_QUICK_CHECK)
   }
 
   /// Indicates whether or not the receiving scalar can occur in NFKC form.
-  public var nfkcQuickCheck: Unicode.NormalizationCheckResult {
+  var nfkcQuickCheck: Unicode.NormalizationCheckResult {
     return value(of: UCHAR_NFKC_QUICK_CHECK)
   }
 }

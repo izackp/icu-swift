@@ -14,14 +14,14 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Denotes the line break type property of a scalar.
   ///
   /// The values in this enum can be used in an algorithm as described by
   /// http://www.unicode.org/reports/tr14/ to determine line boundaries within
   /// text.
-  public enum LineBreakType: ConvertibleFromUnicodeIntProperty {
+  enum LineBreakType: ConvertibleFromUnicodeIntProperty {
 
     case unknown
     case ambiguous
@@ -174,10 +174,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The line break type of the receiver.
-  public var lineBreakType: Unicode.LineBreakType {
+  var lineBreakType: Unicode.LineBreakType {
     return value(of: UCHAR_LINE_BREAK)
   }
 }

@@ -205,7 +205,7 @@ public final class RuleBasedBreakCursor<RuleStatus> {
   }
 }
 
-extension RuleBasedBreakCursor
+public extension RuleBasedBreakCursor
 where RuleStatus: RawRepresentable, RuleStatus.RawValue == Int {
 
   /// Creates a new rule-based break cursor with the given rules.
@@ -216,12 +216,12 @@ where RuleStatus: RawRepresentable, RuleStatus.RawValue == Int {
   ///   - text: The optional initial text that the cursor will scan.
   /// - Throws: `BreakRuleParseError` if an error occurs while parsing the
   ///   rules.
-  public convenience init(rules: String, text: String? = nil) throws {
+  convenience init(rules: String, text: String? = nil) throws {
     try self.init(rules: rules, text: text) { RuleStatus(rawValue: $0)! }
   }
 }
 
-extension RuleBasedBreakCursor where RuleStatus == Int {
+public extension RuleBasedBreakCursor where RuleStatus == Int {
 
   /// Creates a new rule-based break cursor with the given rules.
   ///
@@ -231,7 +231,7 @@ extension RuleBasedBreakCursor where RuleStatus == Int {
   ///   - text: The optional initial text that the cursor will scan.
   /// - Throws: `BreakRuleParseError` if an error occurs while parsing the
   ///   rules.
-  public convenience init(rules: String, text: String? = nil) throws {
+  convenience init(rules: String, text: String? = nil) throws {
     try self.init(rules: rules, text: text) { $0 }
   }
 }

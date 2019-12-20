@@ -14,12 +14,12 @@
 
 import ICU4C
 
-extension Unicode {
+public extension Unicode {
 
   /// Shaping group subdivisions of dual-joining and right-joining Arabic
   /// characters based on the behavior of their letter skeletons when shaped in
   /// context.
-  public enum JoiningGroup: ConvertibleFromUnicodeIntProperty {
+  enum JoiningGroup: ConvertibleFromUnicodeIntProperty {
 
     case ain
     case alaph
@@ -308,10 +308,10 @@ extension Unicode {
   }
 }
 
-extension UnicodeScalar {
+public extension UnicodeScalar {
 
   /// The joining group property of the receiver.
-  public var joiningGroup: Unicode.JoiningGroup? {
+  var joiningGroup: Unicode.JoiningGroup? {
     return value(of: UCHAR_JOINING_GROUP)
   }
 }
