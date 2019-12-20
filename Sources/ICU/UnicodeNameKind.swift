@@ -14,27 +14,30 @@
 
 import ICU4C
 
-/// Indicates which name for a `UnicodeScalar` should be returned by
-/// `UnicodeScalar.name(kind:)` or provided in enumerations.
-public enum UnicodeNameKind {
-  
-  /// The "modern" name of a Unicode scalar (defined by its "Name" property).
-  case unicode
-  
-  /// The "extended" (standard or synthetic) name of a Unicode scalar, which is
-  /// unique for each scalar.
-  case extended
-  
-  /// The corrected name of a Unicode scalar from NameAliases.txt.
-  case alias
-  
-  /// The C API value of type `UCharNameChoice` that corresponds to the
-  /// receiving enum case.
-  var cValue: UCharNameChoice {
-    switch self {
-    case .unicode: return U_UNICODE_CHAR_NAME
-    case .extended: return U_EXTENDED_CHAR_NAME
-    case .alias: return U_CHAR_NAME_ALIAS
+public extension Unicode {
+
+  /// Indicates which name for a `UnicodeScalar` should be returned by
+  /// `UnicodeScalar.name(kind:)` or provided in enumerations.
+  enum NameKind {
+
+    /// The "modern" name of a Unicode scalar (defined by its "Name" property).
+    case unicode
+
+    /// The "extended" (standard or synthetic) name of a Unicode scalar, which is
+    /// unique for each scalar.
+    case extended
+
+    /// The corrected name of a Unicode scalar from NameAliases.txt.
+    case alias
+
+    /// The C API value of type `UCharNameChoice` that corresponds to the
+    /// receiving enum case.
+    var cValue: UCharNameChoice {
+      switch self {
+      case .unicode: return U_UNICODE_CHAR_NAME
+      case .extended: return U_EXTENDED_CHAR_NAME
+      case .alias: return U_CHAR_NAME_ALIAS
+      }
     }
   }
 }
