@@ -75,6 +75,14 @@ public final class WordBreakCursor {
       self.range = Int(range.lowerBound)..<Int(range.upperBound)
     }
 
+    private init(_ range: Range<Int32>) {
+      self.range = Int(range.lowerBound)..<Int(range.upperBound)
+    }
+
+    private init(_ range: Range<Int>) {
+      self.range = range
+    }
+
     /// The rule status range containing "words" that do not fit into any of
     /// the other categories (such as spaces and most punctuation).
     public static let none = RuleStatusRange(

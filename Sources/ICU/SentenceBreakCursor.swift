@@ -76,6 +76,14 @@ public final class SentenceBreakCursor {
       self.range = Int(range.lowerBound)..<Int(range.upperBound)
     }
 
+    private init(_ range: Range<Int32>) {
+      self.range = Int(range.lowerBound)..<Int(range.upperBound)
+    }
+
+    private init(_ range: Range<Int>) {
+      self.range = range
+    }
+
     /// The rule status range for sentences ending with a sentence terminator
     /// character (period, question mark, exclamation point, etc.), possibly
     /// followed by a hard separator (carriage return, line feed, paragraph

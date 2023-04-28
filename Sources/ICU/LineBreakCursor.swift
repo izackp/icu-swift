@@ -75,6 +75,14 @@ public final class LineBreakCursor {
       self.range = Int(range.lowerBound)..<Int(range.upperBound)
     }
 
+    private init(_ range: Range<Int32>) {
+      self.range = Int(range.lowerBound)..<Int(range.upperBound)
+    }
+
+    private init(_ range: Range<Int>) {
+      self.range = range
+    }
+
     /// The rule status range for soft line breaks—positions at which a line
     /// break is acceptable but not required.
     public static let soft = RuleStatusRange(

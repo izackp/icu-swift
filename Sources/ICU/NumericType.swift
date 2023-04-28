@@ -46,9 +46,9 @@ public extension UnicodeScalar {
 
   /// The numeric value of the receiving scalar, if it has one.
   var numericValue: Unicode.NumericValue? {
-    let cValue = UNumericType(
-      UInt32(bitPattern: u_getIntPropertyValue(
-        uchar32Value, UCHAR_NUMERIC_TYPE)))
+    let someValue = u_getIntPropertyValue(uchar32Value, UCHAR_NUMERIC_TYPE)
+
+    let cValue = UNumericType(unsafeBitCast(someValue, to: UNumericType.RawValue.self))
     let numericValue = u_getNumericValue(uchar32Value)
 
     switch cValue {

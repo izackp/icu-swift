@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "icu4c-swift",
-        "repositoryURL": "https://github.com/kPherox/icu4c-swift",
+        "repositoryURL": "https://github.com/izackp/icu4c-swift",
         "state": {
           "branch": "master",
-          "revision": "48549b4281ff5f30d2602f39d82f530c31bcadb9",
+          "revision": "900887dac7d58903d86b622fb080e5b3ee667a16",
           "version": null
         }
       }

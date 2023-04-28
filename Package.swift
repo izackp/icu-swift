@@ -22,7 +22,7 @@ let package = Package(
     .library(name: "ICU", type: .static, targets: ["ICU"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/kPherox/icu4c-swift", .branch("master")),
+    .package(url: "https://github.com/izackp/icu4c-swift", .branch("master")),
   ],
   targets: [
     .target(name: "ICU", dependencies: ["ICU4C"]),
