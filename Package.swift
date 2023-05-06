@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.8
 
 // Copyright 2017 Tony Allevato.
 //
@@ -22,10 +22,13 @@ let package = Package(
     .library(name: "ICU", type: .static, targets: ["ICU"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/izackp/icu4c-swift", .branch("master")),
+    .package(url: "https://github.com/izackp/icu4c-swift", branch:"master")
   ],
   targets: [
-    .target(name: "ICU", dependencies: ["ICU4C"]),
+    .target(name: "ICU", dependencies: [
+      Target.Dependency.product(name: "ICU4CMac", package: "icu4c-swift", condition: .when(platforms: [.iOS, .macOS, .watchOS, .tvOS])),
+      Target.Dependency.product(name: "ICU4C", package: "icu4c-swift", condition: .when(platforms: [.android, .driverKit, .openbsd, .wasi, .windows]))
+      ]),
     .testTarget(name: "ICUTests", dependencies: ["ICU"]),
   ]
 )
