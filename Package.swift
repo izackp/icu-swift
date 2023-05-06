@@ -1,4 +1,4 @@
-// swift-tools-version:5.8
+// swift-tools-version:5.7.1
 
 // Copyright 2017 Tony Allevato.
 //
@@ -27,7 +27,7 @@ let package = Package(
   targets: [
     .target(name: "ICU", dependencies: [
       Target.Dependency.product(name: "ICU4CMac", package: "icu4c-swift", condition: .when(platforms: [.iOS, .macOS, .watchOS, .tvOS])),
-      Target.Dependency.product(name: "ICU4C", package: "icu4c-swift", condition: .when(platforms: [.android, .driverKit, .openbsd, .wasi, .windows]))
+      Target.Dependency.product(name: "ICU4C", package: "icu4c-swift", condition: .when(platforms: [.android, .driverKit, .wasi, .windows]))
       ]),
     .testTarget(name: "ICUTests", dependencies: ["ICU"]),
   ]
