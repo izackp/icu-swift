@@ -13,6 +13,11 @@
 // limitations under the License.
 
 import ICU4C
+#if canImport(Glibc)
+import Glibc
+#elseif canImport(Musl)
+import Musl
+#endif
 
 public extension Unicode {
 

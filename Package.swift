@@ -27,7 +27,7 @@ let package = Package(
   targets: [
     .target(name: "ICU", dependencies: [
       Target.Dependency.product(name: "ICU4CMac", package: "icu4c-swift", condition: .when(platforms: [.iOS, .macOS, .watchOS, .tvOS])),
-      Target.Dependency.product(name: "ICU4C", package: "icu4c-swift", condition: .when(platforms: [.android, .driverKit, .wasi, .windows]))
+      Target.Dependency.product(name: "ICU4C", package: "icu4c-swift", condition: .when(platforms: [.android, .driverKit, .wasi, .windows, .linux]))
       ]),
     .testTarget(name: "ICUTests", dependencies: ["ICU"]),
   ]
